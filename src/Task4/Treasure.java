@@ -1,8 +1,8 @@
 package Task4;
 
-public class Treasure { //сокровище дракона
-private String name; //название сокровища
-private int cost; // стоимость сокровища
+public class Treasure { //СЃРѕРєСЂРѕРІРёС‰Рµ РґСЂР°РєРѕРЅР°
+private String name; //РЅР°Р·РІР°РЅРёРµ СЃРѕРєСЂРѕРІРёС‰Р°
+private int cost; // СЃС‚РѕРёРјРѕСЃС‚СЊ СЃРѕРєСЂРѕРІРёС‰Р°
 
 public Treasure(String name, int cost){
 	this.name=name;

@@ -2,11 +2,9 @@ package Task4;
 
 import java.util.List;
 
-import Task4.Treasure;
-
-public class DragonCave {//пещера дракона
-	private String name;//название пещеры
-	private List<Treasure> treasures; //сокровища в пещере
+public class DragonCave {//РїРµС‰РµСЂР° РґСЂР°РєРѕРЅР°
+	private String name;//РЅР°Р·РІР°РЅРёРµ РїРµС‰РµСЂС‹
+	private List<Treasure> treasures; //СЃРѕРєСЂРѕРІРёС‰Р° РІ РїРµС‰РµСЂРµ
 	
 	public DragonCave(String name){
 		this.name=name;
@@ -21,19 +19,19 @@ public class DragonCave {//пещера дракона
 		String s="";
 		  for (int i=0; i < treasures.size(); i++)
 	        {
-				  s=s + "\r\n  |+++++| Название сокровища  : "
+				  s=s + "\r\n  |+++++| РќР°Р·РІР°РЅРёРµ СЃРѕРєСЂРѕРІРёС‰Р°  : "
 		            		+ ""+ treasures.get(i).getName() + " "
-		            				+ "  |+++++| Стоимость  : "
+		            				+ "  |+++++| РЎС‚РѕРёРјРѕСЃС‚СЊ  : "
 		            					+ ""+treasures.get(i).getCost()+" $  "
 		            						+ " ";
 	         
 	        }
 			 return "{" +
-            " Вы просматриваете :'" + this.name  + " \r\n "+
-            ", Список сокровищ : ||'" + s  + '\'' +
+            " Р’С‹ РїСЂРѕСЃРјР°С‚СЂРёРІР°РµС‚Рµ :'" + this.name  + " \r\n "+
+            ", РЎРїРёСЃРѕРє СЃРѕРєСЂРѕРІРёС‰ : ||'" + s  + '\'' +
             '}';
 	}
-	//самое дорогое сокровище
+	//СЃР°РјРѕРµ РґРѕСЂРѕРіРѕРµ СЃРѕРєСЂРѕРІРёС‰Рµ
 	public int mostExpensive() {
 		int x=0;
 		for (int i=0; i < treasures.size(); i++)
@@ -41,7 +39,7 @@ public class DragonCave {//пещера дракона
 				x=treasures.get(i).getCost();
 		return x;
 	}
-	//выборка сокровищ по сумме
+	//РІС‹Р±РѕСЂРєР° СЃРѕРєСЂРѕРІРёС‰ РїРѕ СЃСѓРјРјРµ
 	public String treasureSelection(int tS) {
 		String x="";
 		int temp=0;
@@ -52,9 +50,9 @@ public class DragonCave {//пещера дракона
 		    temp=temp+treasures.get(i).getCost(); 
 		}
 		if (temp==tS)
-		return "Найдены сокровища на выбранную сумму:"+x+" Общая стоимость: "+ temp;
-		else return "К сожелению сокровищ на заданную сумму нет, но есть на сумму поменьше: "+
-		x+" Общая стоимость: "+ temp;
+		return "РќР°Р№РґРµРЅС‹ СЃРѕРєСЂРѕРІРёС‰Р° РЅР° РІС‹Р±СЂР°РЅРЅСѓСЋ СЃСѓРјРјСѓ:"+x+" РћР±С‰Р°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ: "+ temp;
+		else return "Рљ СЃРѕР¶РµР»РµРЅРёСЋ СЃРѕРєСЂРѕРІРёС‰ РЅР° Р·Р°РґР°РЅРЅСѓСЋ СЃСѓРјРјСѓ РЅРµС‚, РЅРѕ РµСЃС‚СЊ РЅР° СЃСѓРјРјСѓ РїРѕРјРµРЅСЊС€Рµ: "+
+		x+" РћР±С‰Р°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ: "+ temp;
 	}
 
 	public String getName() {

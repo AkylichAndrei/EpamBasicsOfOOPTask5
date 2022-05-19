@@ -1,16 +1,12 @@
 package mainPackage;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
-
-
-// Создать объект класса Текстовый файл, 
-// используя классы Файл, Директория.
-// Методы: создать, переименовать, вывести на консоль содержимое, дополнить, удалить.
+// РЎРѕР·РґР°С‚СЊ РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° РўРµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р», 
+// РёСЃРїРѕР»СЊР·СѓСЏ РєР»Р°СЃСЃС‹ Р¤Р°Р№Р», Р”РёСЂРµРєС‚РѕСЂРёСЏ.
+// РњРµС‚РѕРґС‹: СЃРѕР·РґР°С‚СЊ, РїРµСЂРµРёРјРµРЅРѕРІР°С‚СЊ, РІС‹РІРµСЃС‚Рё РЅР° РєРѕРЅСЃРѕР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ, РґРѕРїРѕР»РЅРёС‚СЊ, СѓРґР°Р»РёС‚СЊ.
 class Directory{
 	private String name;
 	private List<File> files;
@@ -23,15 +19,15 @@ class Directory{
 			String s="";
 			  for (int i=0; i < files.size(); i++)
 		        {
-		            s = s + " |+++++| Название файла : "
+		            s = s + " |+++++| РќР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р° : "
 		            		+ ""+files.get(i).getName()+" "
-		            				+ "|| Содержимое файла: "
+		            				+ "|| РЎРѕРґРµСЂР¶РёРјРѕРµ С„Р°Р№Р»Р°: "
 								      	+ ""+files.get(i).getContent()+" |+++++|"
 		            						+ " ";
 		        }
 				 return "{" +
-	            "Название просматриваемой папки :'" + name + '\'' +
-	            ", Список доступных файлов и их содержимое : ||'" + s  + '\'' +
+	            "РќР°Р·РІР°РЅРёРµ РїСЂРѕСЃРјР°С‚СЂРёРІР°РµРјРѕР№ РїР°РїРєРё :'" + name + '\'' +
+	            ", РЎРїРёСЃРѕРє РґРѕСЃС‚СѓРїРЅС‹С… С„Р°Р№Р»РѕРІ Рё РёС… СЃРѕРґРµСЂР¶РёРјРѕРµ : ||'" + s  + '\'' +
 	            '}';
 		}
 	void create(List<File> files) {
@@ -39,28 +35,28 @@ class Directory{
 	}
 	void rename(String s1, String s2) {
 		for (int i=0; i < files.size(); i++)
-			if(files.get(i).getName().equals(s1)==true)//сравнение 
+			if(files.get(i).getName().equals(s1)==true)//СЃСЂР°РІРЅРµРЅРёРµ 
 				{
 				files.get(i).setName(s2);
-				System.out.println("Переименование завершено!");
+				System.out.println("РџРµСЂРµРёРјРµРЅРѕРІР°РЅРёРµ Р·Р°РІРµСЂС€РµРЅРѕ!");
 				}
 	}
 	void addText(String s1, String s2) {
 		for (int i=0; i < files.size(); i++)
-			if(files.get(i).getName().equals(s1)==true)//сравнение 
+			if(files.get(i).getName().equals(s1)==true)//СЃСЂР°РІРЅРµРЅРёРµ 
 				{
-				//s2.concat(files.get(i).getContent()); //накладывает содержимое на уже имеющееся
+				//s2.concat(files.get(i).getContent()); //РЅР°РєР»Р°РґС‹РІР°РµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РЅР° СѓР¶Рµ РёРјРµСЋС‰РµРµСЃСЏ
 				s2= files.get(i).getContent() + s2 ;
 				files.get(i).setContent(s2);
-				System.out.println("Текст добавлен!");
+				System.out.println("РўРµРєСЃС‚ РґРѕР±Р°РІР»РµРЅ!");
 				}
 	}
 	void delete(String s1){
 		for (int i=0; i < files.size(); i++)
-			if(files.get(i).getName().equals(s1)==true)//сравнение 
+			if(files.get(i).getName().equals(s1)==true)//СЃСЂР°РІРЅРµРЅРёРµ 
 				{
 				files.remove(i);
-				System.out.println("Файл успешно удалён!");
+				System.out.println("Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ СѓРґР°Р»С‘РЅ!");
 				}
 	}
 	public List<File> getFiles() {
@@ -102,74 +98,72 @@ public class Task1 {
         String s ="";
         String s1 ="";
         String s2 ="";
-        Directory objDirectory = new Directory("Новая папка",null);
+        Directory objDirectory = new Directory("РќРѕРІР°СЏ РїР°РїРєР°",null);
         folders.add(objDirectory);
         while (!"6".equals(s)){
-            System.out.println("1. Для создания текстового файла введите ==> 1");
-            System.out.println("2. Для переименовывания файла введите ==> 2");
-            System.out.println("3. Для того чтобы вывести на консоль введите ==> 3");
-            System.out.println("4. Для дополнения текстового файла введите ==> 4");
-            System.out.println("5. Для удаления текстового файла введите ==> 5");
-            System.out.println("5. Для выхода введите ==> 6");
+            System.out.println("1. Р”Р»СЏ СЃРѕР·РґР°РЅРёСЏ С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р° РІРІРµРґРёС‚Рµ ==> 1");
+            System.out.println("2. Р”Р»СЏ РїРµСЂРµРёРјРµРЅРѕРІС‹РІР°РЅРёСЏ С„Р°Р№Р»Р° РІРІРµРґРёС‚Рµ ==> 2");
+            System.out.println("3. Р”Р»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РІС‹РІРµСЃС‚Рё РЅР° РєРѕРЅСЃРѕР»СЊ РІРІРµРґРёС‚Рµ ==> 3");
+            System.out.println("4. Р”Р»СЏ РґРѕРїРѕР»РЅРµРЅРёСЏ С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р° РІРІРµРґРёС‚Рµ ==> 4");
+            System.out.println("5. Р”Р»СЏ СѓРґР°Р»РµРЅРёСЏ С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р° РІРІРµРґРёС‚Рµ ==> 5");
+            System.out.println("5. Р”Р»СЏ РІС‹С…РѕРґР° РІРІРµРґРёС‚Рµ ==> 6");
             s = scan.next();
             try {
                 x = Integer.parseInt(s);
             } catch (NumberFormatException e){
-                System.out.println("Неверный ввод");
+                System.out.println("РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ");
             }
             switch (x){
                 case 1:	
-                    // вызов метода 1
-                	System.out.println("===== Выбран пункт меню 1 =====");
-                	System.out.println("Введите название файла:");
+                    // РІС‹Р·РѕРІ РјРµС‚РѕРґР° 1
+                	System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 1 =====");
+                	System.out.println("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р°:");
                 	s1=scan.next();
                 	scan.nextLine();
-                	System.out.println("Введите содержимое файла:");
+                	System.out.println("Р’РІРµРґРёС‚Рµ СЃРѕРґРµСЂР¶РёРјРѕРµ С„Р°Р№Р»Р°:");
                 	s2=scan.nextLine();
                 	File objFile1 = new File(s1,s2); 
             		files.add(objFile1);
                 	objDirectory.create(files);
                     break;
                 case 2:
-                    // вызов метода 2
-                	System.out.println("===== Выбран пункт меню 2 =====");
-                	System.out.println("Введите название файла для переимонавания:");
+                    // РІС‹Р·РѕРІ РјРµС‚РѕРґР° 2
+                	System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 2 =====");
+                	System.out.println("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р° РґР»СЏ РїРµСЂРµРёРјРѕРЅР°РІР°РЅРёСЏ:");
                 	s1=scan.next();
                 	scan.nextLine();
-                	System.out.println("Введите новое имя:");
+                	System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ РёРјСЏ:");
                 	s2=scan.nextLine();
                 	objDirectory.rename(s1,s2);            	    
                     break;
                 case 3:
-                    // вызов метода 3
-                	System.out.println("===== Выбран пункт меню 3 =====");
-            	 	System.out.println("===== Список папок");
+                    // РІС‹Р·РѕРІ РјРµС‚РѕРґР° 3
+                	System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 3 =====");
+            	 	System.out.println("===== РЎРїРёСЃРѕРє РїР°РїРѕРє");
             	    for (Directory u : folders) {
             	    	System.out.println(u);
             	    }
-            	    
                     break;
                 case 4:
-                    // вызов метода 4
-                	System.out.println("===== Выбран пункт меню 4 =====");
-                	System.out.println("Введите название файла для дополнения:");
+                    // РІС‹Р·РѕРІ РјРµС‚РѕРґР° 4
+                	System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 4 =====");
+                	System.out.println("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р° РґР»СЏ РґРѕРїРѕР»РЅРµРЅРёСЏ:");
                 	s1=scan.next();
                 	scan.nextLine();
-                	System.out.println("Введите тескт для дополнения:");
+                	System.out.println("Р’РІРµРґРёС‚Рµ С‚РµСЃРєС‚ РґР»СЏ РґРѕРїРѕР»РЅРµРЅРёСЏ:");
                 	s2=scan.nextLine();
                 	objDirectory.addText(s1,s2);  
                     break;
                 case 5:
-                    // вызов метода 5
-                	System.out.println("===== Выбран пункт меню 5 =====");
-                	System.out.println("Введите название файла для удаления:");
+                    // РІС‹Р·РѕРІ РјРµС‚РѕРґР° 5
+                	System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 5 =====");
+                	System.out.println("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р° РґР»СЏ СѓРґР°Р»РµРЅРёСЏ:");
                 	s1=scan.next();
                 	objDirectory.delete(s1);  
                     break;
-               
             }
         }
-        System.out.println("До свидания!");
+        System.out.println("Р”Рѕ СЃРІРёРґР°РЅРёСЏ!");
         scan.close();
 	}
 

@@ -3,9 +3,9 @@ package mainPackage;
 import java.util.ArrayList;
 import java.util.List;
 
-//Создать класс Payment с внутренним классом,
-//с помощью объектов которого можно сформировать покупку из нескольких товаров.
- class Payment{//платёж
+//РЎРѕР·РґР°С‚СЊ РєР»Р°СЃСЃ Payment СЃ РІРЅСѓС‚СЂРµРЅРЅРёРј РєР»Р°СЃСЃРѕРј,
+//СЃ РїРѕРјРѕС‰СЊСЋ РѕР±СЉРµРєС‚РѕРІ РєРѕС‚РѕСЂРѕРіРѕ РјРѕР¶РЅРѕ СЃС„РѕСЂРјРёСЂРѕРІР°С‚СЊ РїРѕРєСѓРїРєСѓ РёР· РЅРµСЃРєРѕР»СЊРєРёС… С‚РѕРІР°СЂРѕРІ.
+ class Payment{//РїР»Р°С‚С‘Р¶
 	private long id;
 	private List<Product> products;
 	
@@ -17,7 +17,6 @@ import java.util.List;
 		this.products=products;
 	}
 	 void addProduct(List<Product> products) {
-		//for (int i=0; i < product.size(); i++)
 			Payment.this.products=products;
 	}
 	 @Override
@@ -25,15 +24,15 @@ import java.util.List;
 			String s="";
 			  for (int i=0; i < products.size(); i++)
 		        {
-		            s = s + "\r\n  |+++++| Наименование продукта : "
+		            s = s + "\r\n  |+++++| РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїСЂРѕРґСѓРєС‚Р° : "
 		            		+ ""+products.get(i).getName()+" "
-		            				+ "|| Стоимость: "
+		            				+ "|| РЎС‚РѕРёРјРѕСЃС‚СЊ: "
 								      	+ ""+products.get(i).getPrice()+" |+++++|"
 		            						+ " ";
 		        }
 				 return "{" +
-	            " id покупки :'" + id + '\'' +
-	            ", Список покупок : ||'" + s  + '\'' +
+	            " id РїРѕРєСѓРїРєРё :'" + id + '\'' +
+	            ", РЎРїРёСЃРѕРє РїРѕРєСѓРїРѕРє : ||'" + s  + '\'' +
 	            '}';
 		}
 public class Product{
@@ -72,12 +71,12 @@ public class Task2 {
 		List<Payment> payments = new ArrayList<>();
 	    List<Payment.Product> products = new ArrayList<>();
 	    Payment objPayment = new Payment(1001);
-        Payment.Product objProduct = objPayment.new Product("Яблоко",100);
-        Payment.Product objProduct2 = objPayment.new Product("Груша",150);
-        Payment.Product objProduct3 = objPayment.new Product("Банан",50);
-        Payment.Product objProduct4 = objPayment.new Product("Хлеб",10);
-        Payment.Product objProduct5 = objPayment.new Product("Молоко",130);
-        Payment.Product objProduct6 = objPayment.new Product("Гречка",190);
+        Payment.Product objProduct = objPayment.new Product("РЇР±Р»РѕРєРѕ",100);
+        Payment.Product objProduct2 = objPayment.new Product("Р“СЂСѓС€Р°",150);
+        Payment.Product objProduct3 = objPayment.new Product("Р‘Р°РЅР°РЅ",50);
+        Payment.Product objProduct4 = objPayment.new Product("РҐР»РµР±",10);
+        Payment.Product objProduct5 = objPayment.new Product("РњРѕР»РѕРєРѕ",130);
+        Payment.Product objProduct6 = objPayment.new Product("Р“СЂРµС‡РєР°",190);
 	    products.add(objProduct);
 	    products.add(objProduct2);
 	    products.add(objProduct3);

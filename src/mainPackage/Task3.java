@@ -1,14 +1,11 @@
 package mainPackage;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
-
-class Calendar{// - это Календарь 
-	private int year; //На календаре отображон год
-	private List<CalendarSheet> calendarSheets;//в каледнаре есть листочки
+class Calendar{// - СЌС‚Рѕ РљР°Р»РµРЅРґР°СЂСЊ 
+	private int year; //РќР° РєР°Р»РµРЅРґР°СЂРµ РѕС‚РѕР±СЂР°Р¶РѕРЅ РіРѕРґ
+	private List<CalendarSheet> calendarSheets;//РІ РєР°Р»РµРґРЅР°СЂРµ РµСЃС‚СЊ Р»РёСЃС‚РѕС‡РєРё
 	Calendar(int year){
 		this.year=year;
 	}
@@ -22,26 +19,26 @@ class Calendar{// - это Календарь
 			  for (int i=0; i < calendarSheets.size(); i++)
 		        {
 				  for(int j = 0; j<calendarSheets.get(i).dayOfTheMonths.size();j++ )
-					  s2=s2 + "\r\n  |+++++| Число  : "
+					  s2=s2 + "\r\n  |+++++| Р§РёСЃР»Рѕ  : "
 			            		+ ""+calendarSheets.get(i).getDayOfTheMonths().get(j).getNumber()+" "
-			            				+ "  |+++++| День недели  : "
+			            				+ "  |+++++| Р”РµРЅСЊ РЅРµРґРµР»Рё  : "
 			            				+ ""+calendarSheets.get(i).getDayOfTheMonths().get(j).getDayOfTheWeek()+" "
-			            						+ " |+++++| Выходной ли  этот день?  : "
+			            						+ " |+++++| Р’С‹С…РѕРґРЅРѕР№ Р»Рё  СЌС‚РѕС‚ РґРµРЅСЊ?  : "
 			            						+ ""+calendarSheets.get(i).getDayOfTheMonths().get(j).isHoliday()+" "
         						+ " ";
-		            s = s + "\r\n  |+++++| Название месяца : "
+		            s = s + "\r\n  |+++++| РќР°Р·РІР°РЅРёРµ РјРµСЃСЏС†Р° : "
 		            		+ ""+calendarSheets.get(i).getMonth()+" "
 		            						+ " "+"\r\n"+s2;
 		        }
 				 return "{" +
-	            " Вы просматриваете календарт :'" + year  + "года \r\n "+
-	            ", Список месяцев : ||'" + s  + '\'' +
+	            " Р’С‹ РїСЂРѕСЃРјР°С‚СЂРёРІР°РµС‚Рµ РєР°Р»РµРЅРґР°СЂС‚ :'" + year  + "РіРѕРґР° \r\n "+
+	            ", РЎРїРёСЃРѕРє РјРµСЃСЏС†РµРІ : ||'" + s  + '\'' +
 	            '}';
 		}
 	
- public class CalendarSheet{//собственно это Листочки
-	 private String month;// на листиках нарисованы месяцы
-	 private List<DayOfTheMonth> dayOfTheMonths; //в каждом месяце есть дни
+ public class CalendarSheet{//СЃРѕР±СЃС‚РІРµРЅРЅРѕ СЌС‚Рѕ Р›РёСЃС‚РѕС‡РєРё
+	 private String month;// РЅР° Р»РёСЃС‚РёРєР°С… РЅР°СЂРёСЃРѕРІР°РЅС‹ РјРµСЃСЏС†С‹
+	 private List<DayOfTheMonth> dayOfTheMonths; //РІ РєР°Р¶РґРѕРј РјРµСЃСЏС†Рµ РµСЃС‚СЊ РґРЅРё
 	 CalendarSheet(String month){
 		 this.month=month;
 	 }
@@ -49,10 +46,10 @@ class Calendar{// - это Календарь
 		 this.dayOfTheMonths=dayOfTheMonths;
 	 }
 	 
-	 public class DayOfTheMonth{// Дни
-		 private int number;//каждый день имеет число
-		 private String dayOfTheWeek;//каждый день являет частью дня недели
-		 private boolean holiday;//каждый день либо является либо не является выходным днём
+	 public class DayOfTheMonth{// Р”РЅРё
+		 private int number;//РєР°Р¶РґС‹Р№ РґРµРЅСЊ РёРјРµРµС‚ С‡РёСЃР»Рѕ
+		 private String dayOfTheWeek;//РєР°Р¶РґС‹Р№ РґРµРЅСЊ СЏРІР»СЏРµС‚ С‡Р°СЃС‚СЊСЋ РґРЅСЏ РЅРµРґРµР»Рё
+		 private boolean holiday;//РєР°Р¶РґС‹Р№ РґРµРЅСЊ Р»РёР±Рѕ СЏРІР»СЏРµС‚СЃСЏ Р»РёР±Рѕ РЅРµ СЏРІР»СЏРµС‚СЃСЏ РІС‹С…РѕРґРЅС‹Рј РґРЅС‘Рј
 		 DayOfTheMonth(int number, String dayOfTheWeek, boolean holiday){
 			 this.number=number;
 			 this.dayOfTheWeek=dayOfTheWeek;
@@ -102,13 +99,13 @@ public List<CalendarSheet> getCalendarSheets() {
 public class Task3 {
 
 	public static void main(String[] args) {
-		List<Calendar> сalendars = new ArrayList<>();
-		List<Calendar.CalendarSheet> сalendarSheets = new ArrayList<>();
+		List<Calendar> СЃalendars = new ArrayList<>();
+		List<Calendar.CalendarSheet> СЃalendarSheets = new ArrayList<>();
 		List<Calendar.CalendarSheet.DayOfTheMonth> dayOfTheMonths = new ArrayList<>();
-		String[] days  = new String[] {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
-		Calendar objCalendar = new Calendar(2020); //создадим календарь 2020 годы
-		Calendar.CalendarSheet objCalendarSheet = objCalendar.new CalendarSheet("March"); // создадим месяц Март 2020 года
-		int j=6;//Месяц март начинается с 6 дня недели Воскресенья
+		String[] days  = new String[] {"РџРѕРЅРµРґРµР»СЊРЅРёРє", "Р’С‚РѕСЂРЅРёРє", "РЎСЂРµРґР°", "Р§РµС‚РІРµСЂРі", "РџСЏС‚РЅРёС†Р°", "РЎСѓР±Р±РѕС‚Р°", "Р’РѕСЃРєСЂРµСЃРµРЅСЊРµ"};
+		Calendar objCalendar = new Calendar(2020); //СЃРѕР·РґР°РґРёРј РєР°Р»РµРЅРґР°СЂСЊ 2020 РіРѕРґС‹
+		Calendar.CalendarSheet objCalendarSheet = objCalendar.new CalendarSheet("March"); // СЃРѕР·РґР°РґРёРј РјРµСЃСЏС† РњР°СЂС‚ 2020 РіРѕРґР°
+		int j=6;//РњРµСЃСЏС† РјР°СЂС‚ РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃ 6 РґРЅСЏ РЅРµРґРµР»Рё Р’РѕСЃРєСЂРµСЃРµРЅСЊСЏ
 		boolean b;
 		for(int i = 1; i < 32 ; i++) {
 			if(j>4)
@@ -121,12 +118,12 @@ public class Task3 {
 			j=0;
 		}
 		
-		objCalendarSheet.addDayOfTheMonth(dayOfTheMonths);//добавим дни в месяц
-		сalendarSheets.add(objCalendarSheet); //добавим в коллекцию
-		objCalendar.addCalendarSheet(сalendarSheets);//добавим месяц в год
-		сalendars.add(objCalendar);
-		for (Calendar u : сalendars) {
-	    	System.out.println(u); //посмотрим что получилось 
+		objCalendarSheet.addDayOfTheMonth(dayOfTheMonths);//РґРѕР±Р°РІРёРј РґРЅРё РІ РјРµСЃСЏС†
+		СЃalendarSheets.add(objCalendarSheet); //РґРѕР±Р°РІРёРј РІ РєРѕР»Р»РµРєС†РёСЋ
+		objCalendar.addCalendarSheet(СЃalendarSheets);//РґРѕР±Р°РІРёРј РјРµСЃСЏС† РІ РіРѕРґ
+		СЃalendars.add(objCalendar);
+		for (Calendar u : СЃalendars) {
+	    	System.out.println(u); //РїРѕСЃРјРѕС‚СЂРёРј С‡С‚Рѕ РїРѕР»СѓС‡РёР»РѕСЃСЊ 
 	    }
 		}
 

@@ -3,125 +3,125 @@ package mainPackage;
 import java.util.ArrayList;
 import java.util.List;
 
-//Создать консольное приложение, удовлетворяющее следующим требованиям:
-//• Корректно спроектируйте и реализуйте предметную область задачи.  +
-//• Для создания объектов из иерархии классов продумайте возможность использования порождающих шаблонов проектирования. +
-//• Реализуйте проверку данных, вводимых пользователем, но не на стороне клиента. +
-//• для проверки корректности переданных данных можно применить регулярные выражения, а можно не применять. =)) 
-//• Меню выбора действия пользователем можно не реализовывать, используйте заглушку. +
-//• Особое условие: переопределите, где необходимо, методы toString(), equals() и hashCode().  +
+//РЎРѕР·РґР°С‚СЊ РєРѕРЅСЃРѕР»СЊРЅРѕРµ РїСЂРёР»РѕР¶РµРЅРёРµ, СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‰РµРµ СЃР»РµРґСѓСЋС‰РёРј С‚СЂРµР±РѕРІР°РЅРёСЏРј:
+//вЂў РљРѕСЂСЂРµРєС‚РЅРѕ СЃРїСЂРѕРµРєС‚РёСЂСѓР№С‚Рµ Рё СЂРµР°Р»РёР·СѓР№С‚Рµ РїСЂРµРґРјРµС‚РЅСѓСЋ РѕР±Р»Р°СЃС‚СЊ Р·Р°РґР°С‡Рё.  +
+//вЂў Р”Р»СЏ СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚РѕРІ РёР· РёРµСЂР°СЂС…РёРё РєР»Р°СЃСЃРѕРІ РїСЂРѕРґСѓРјР°Р№С‚Рµ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РїРѕСЂРѕР¶РґР°СЋС‰РёС… С€Р°Р±Р»РѕРЅРѕРІ РїСЂРѕРµРєС‚РёСЂРѕРІР°РЅРёСЏ. +
+//вЂў Р РµР°Р»РёР·СѓР№С‚Рµ РїСЂРѕРІРµСЂРєСѓ РґР°РЅРЅС‹С…, РІРІРѕРґРёРјС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј, РЅРѕ РЅРµ РЅР° СЃС‚РѕСЂРѕРЅРµ РєР»РёРµРЅС‚Р°. +
+//вЂў РґР»СЏ РїСЂРѕРІРµСЂРєРё РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РїРµСЂРµРґР°РЅРЅС‹С… РґР°РЅРЅС‹С… РјРѕР¶РЅРѕ РїСЂРёРјРµРЅРёС‚СЊ СЂРµРіСѓР»СЏСЂРЅС‹Рµ РІС‹СЂР°Р¶РµРЅРёСЏ, Р° РјРѕР¶РЅРѕ РЅРµ РїСЂРёРјРµРЅСЏС‚СЊ. =)) 
+//вЂў РњРµРЅСЋ РІС‹Р±РѕСЂР° РґРµР№СЃС‚РІРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј РјРѕР¶РЅРѕ РЅРµ СЂРµР°Р»РёР·РѕРІС‹РІР°С‚СЊ, РёСЃРїРѕР»СЊР·СѓР№С‚Рµ Р·Р°РіР»СѓС€РєСѓ. +
+//вЂў РћСЃРѕР±РѕРµ СѓСЃР»РѕРІРёРµ: РїРµСЂРµРѕРїСЂРµРґРµР»РёС‚Рµ, РіРґРµ РЅРµРѕР±С…РѕРґРёРјРѕ, РјРµС‚РѕРґС‹ toString(), equals() Рё hashCode().  +
 
-//Вариант A. 
-//Цветочная композиция. 
-//Реализовать приложение, позволяющее создавать цветочные композиции (объект, представляющий собой цветочную композицию). 
-//Составляющими цветочной композиции являются цветы и упаковка.
-//Вариант B. 
-//Подарки. 
-//Реализовать приложение, позволяющее создавать подарки (объект, представляющий собой подарок).
-//Составляющими целого подарка являются сладости и упаковка.
+//Р’Р°СЂРёР°РЅС‚ A. 
+//Р¦РІРµС‚РѕС‡РЅР°СЏ РєРѕРјРїРѕР·РёС†РёСЏ. 
+//Р РµР°Р»РёР·РѕРІР°С‚СЊ РїСЂРёР»РѕР¶РµРЅРёРµ, РїРѕР·РІРѕР»СЏСЋС‰РµРµ СЃРѕР·РґР°РІР°С‚СЊ С†РІРµС‚РѕС‡РЅС‹Рµ РєРѕРјРїРѕР·РёС†РёРё (РѕР±СЉРµРєС‚, РїСЂРµРґСЃС‚Р°РІР»СЏСЋС‰РёР№ СЃРѕР±РѕР№ С†РІРµС‚РѕС‡РЅСѓСЋ РєРѕРјРїРѕР·РёС†РёСЋ). 
+//РЎРѕСЃС‚Р°РІР»СЏСЋС‰РёРјРё С†РІРµС‚РѕС‡РЅРѕР№ РєРѕРјРїРѕР·РёС†РёРё СЏРІР»СЏСЋС‚СЃСЏ С†РІРµС‚С‹ Рё СѓРїР°РєРѕРІРєР°.
+//Р’Р°СЂРёР°РЅС‚ B. 
+//РџРѕРґР°СЂРєРё. 
+//Р РµР°Р»РёР·РѕРІР°С‚СЊ РїСЂРёР»РѕР¶РµРЅРёРµ, РїРѕР·РІРѕР»СЏСЋС‰РµРµ СЃРѕР·РґР°РІР°С‚СЊ РїРѕРґР°СЂРєРё (РѕР±СЉРµРєС‚, РїСЂРµРґСЃС‚Р°РІР»СЏСЋС‰РёР№ СЃРѕР±РѕР№ РїРѕРґР°СЂРѕРє).
+//РЎРѕСЃС‚Р°РІР»СЏСЋС‰РёРјРё С†РµР»РѕРіРѕ РїРѕРґР°СЂРєР° СЏРІР»СЏСЋС‚СЃСЏ СЃР»Р°РґРѕСЃС‚Рё Рё СѓРїР°РєРѕРІРєР°.
 public class Task5 {
 	public static void main(String[] args) {
-		//================Клиентский код варианта А================
+		//================РљР»РёРµРЅС‚СЃРєРёР№ РєРѕРґ РІР°СЂРёР°РЅС‚Р° Рђ================
 		   List<Package> packages  = new ArrayList<>();
 		   List<Flower> flowers = new ArrayList<>();
 		   List<FlowerComposition> flowerCompositions = new ArrayList<>();
 		
-		//вырастим три розы в оранжерее роз
+		//РІС‹СЂР°СЃС‚РёРј С‚СЂРё СЂРѕР·С‹ РІ РѕСЂР°РЅР¶РµСЂРµРµ СЂРѕР·
 		   for(int i=0;i<3;i++) {
-			   Greenhouse objGreenhouse = getRoseFlowerGreenhouse("Роза");
-			   Flower flower = objGreenhouse.createFlower("Роза");
+			   Greenhouse objGreenhouse = getRoseFlowerGreenhouse("Р РѕР·Р°");
+			   Flower flower = objGreenhouse.createFlower("Р РѕР·Р°");
 			   flowers.add(flower);
 		   }
-		 //вырастим две ромашки в оранжерее ромашек
+		 //РІС‹СЂР°СЃС‚РёРј РґРІРµ СЂРѕРјР°С€РєРё РІ РѕСЂР°РЅР¶РµСЂРµРµ СЂРѕРјР°С€РµРє
 		   for(int i=0;i<2;i++) {
-				Greenhouse objGreenhouse = getRoseFlowerGreenhouse("Ромашка");
-		        Flower flower = objGreenhouse.createFlower("Ромашка");
+				Greenhouse objGreenhouse = getRoseFlowerGreenhouse("Р РѕРјР°С€РєР°");
+		        Flower flower = objGreenhouse.createFlower("Р РѕРјР°С€РєР°");
 		        flowers.add(flower);
 				   }
-		 //создадим в компании по производству упаковак упаковку синего цвета
-        PackingСompany objPackingCompany = getPackingCompany("Синяя упаковка");
-        Package objPacking = objPackingCompany.createPackage("Синяя упаковка");
+		 //СЃРѕР·РґР°РґРёРј РІ РєРѕРјРїР°РЅРёРё РїРѕ РїСЂРѕРёР·РІРѕРґСЃС‚РІСѓ СѓРїР°РєРѕРІР°Рє СѓРїР°РєРѕРІРєСѓ СЃРёРЅРµРіРѕ С†РІРµС‚Р°
+        PackingРЎompany objPackingCompany = getPackingCompany("РЎРёРЅСЏСЏ СѓРїР°РєРѕРІРєР°");
+        Package objPacking = objPackingCompany.createPackage("РЎРёРЅСЏСЏ СѓРїР°РєРѕРІРєР°");
         packages.add(objPacking);
         
         
         
-        //создадим цветочную компазицию из всех что у нас есть цветов и назовём её "Весенний восторг"
-        FlowerComposition objFlowerCompositions = new FlowerComposition("Весенний восторг",packages,flowers);
+        //СЃРѕР·РґР°РґРёРј С†РІРµС‚РѕС‡РЅСѓСЋ РєРѕРјРїР°Р·РёС†РёСЋ РёР· РІСЃРµС… С‡С‚Рѕ Сѓ РЅР°СЃ РµСЃС‚СЊ С†РІРµС‚РѕРІ Рё РЅР°Р·РѕРІС‘Рј РµС‘ "Р’РµСЃРµРЅРЅРёР№ РІРѕСЃС‚РѕСЂРі"
+        FlowerComposition objFlowerCompositions = new FlowerComposition("Р’РµСЃРµРЅРЅРёР№ РІРѕСЃС‚РѕСЂРі",packages,flowers);
         flowerCompositions.add(objFlowerCompositions);
-        //посмотрим что получилось
+        //РїРѕСЃРјРѕС‚СЂРёРј С‡С‚Рѕ РїРѕР»СѓС‡РёР»РѕСЃСЊ
         for (FlowerComposition u : flowerCompositions) {
 	    	System.out.println(u);
 	    }
-      //================Клиентский код варианта Б================
+      //================РљР»РёРµРЅС‚СЃРєРёР№ РєРѕРґ РІР°СЂРёР°РЅС‚Р° Р‘================
         
         List<PackageSweets> packageSweets  = new ArrayList<>();
         List<Sweetness> sweetness = new ArrayList<>();
 		   List<Present> presents = new ArrayList<>();
 		
-		//произведём три конфеты на заводе Roshen
+		//РїСЂРѕРёР·РІРµРґС‘Рј С‚СЂРё РєРѕРЅС„РµС‚С‹ РЅР° Р·Р°РІРѕРґРµ Roshen
 		   for(int i=0;i<3;i++) {
-			   SweetsPlant objSweetsPlant = getSweetsPlant("Конфета");
-			   Sweetness objSweetness = objSweetsPlant.createSweetness("Конфета");
+			   SweetsPlant objSweetsPlant = getSweetsPlant("РљРѕРЅС„РµС‚Р°");
+			   Sweetness objSweetness = objSweetsPlant.createSweetness("РљРѕРЅС„РµС‚Р°");
 			   sweetness.add(objSweetness);
 		   }
-		 //произведём четыре шоколадки на заводе Nestle
+		 //РїСЂРѕРёР·РІРµРґС‘Рј С‡РµС‚С‹СЂРµ С€РѕРєРѕР»Р°РґРєРё РЅР° Р·Р°РІРѕРґРµ Nestle
 		   for(int i = 0 ; i < 4 ; i++) {
-			   SweetsPlant objSweetsPlant = getSweetsPlant("Шоколад");
-			   Sweetness objSweetness = objSweetsPlant.createSweetness("Шоколад");
+			   SweetsPlant objSweetsPlant = getSweetsPlant("РЁРѕРєРѕР»Р°Рґ");
+			   Sweetness objSweetness = objSweetsPlant.createSweetness("РЁРѕРєРѕР»Р°Рґ");
 			   sweetness.add(objSweetness);
 				   }
-		 //создадим в компании по производству упаковак упаковку синего цвета
-		   PackingСompanySweets objPackingСompanySweets = getPackageSweets("Красная упаковка");
-		   PackageSweets objPackageSweets = objPackingСompanySweets.createPackageSweets("Красная упаковка");
+		 //СЃРѕР·РґР°РґРёРј РІ РєРѕРјРїР°РЅРёРё РїРѕ РїСЂРѕРёР·РІРѕРґСЃС‚РІСѓ СѓРїР°РєРѕРІР°Рє СѓРїР°РєРѕРІРєСѓ СЃРёРЅРµРіРѕ С†РІРµС‚Р°
+		   PackingРЎompanySweets objPackingРЎompanySweets = getPackageSweets("РљСЂР°СЃРЅР°СЏ СѓРїР°РєРѕРІРєР°");
+		   PackageSweets objPackageSweets = objPackingРЎompanySweets.createPackageSweets("РљСЂР°СЃРЅР°СЏ СѓРїР°РєРѕРІРєР°");
 		   packageSweets.add(objPackageSweets);
      
      
      
-     //создадим подарок из всех что у нас есть сладостей и назовём её "сладкое наслаждение"
-		   Present objPresent = new Present("Сладкое наслаждение",packageSweets,sweetness);
+     //СЃРѕР·РґР°РґРёРј РїРѕРґР°СЂРѕРє РёР· РІСЃРµС… С‡С‚Рѕ Сѓ РЅР°СЃ РµСЃС‚СЊ СЃР»Р°РґРѕСЃС‚РµР№ Рё РЅР°Р·РѕРІС‘Рј РµС‘ "СЃР»Р°РґРєРѕРµ РЅР°СЃР»Р°Р¶РґРµРЅРёРµ"
+		   Present objPresent = new Present("РЎР»Р°РґРєРѕРµ РЅР°СЃР»Р°Р¶РґРµРЅРёРµ",packageSweets,sweetness);
 		   presents.add(objPresent);
-     //посмотрим что получилось
+     //РїРѕСЃРјРѕС‚СЂРёРј С‡С‚Рѕ РїРѕР»СѓС‡РёР»РѕСЃСЊ
      for (Present u : presents) {
 	    	System.out.println(u);
 	    }
         
 	}
-	//================проверка исключений варианта А================
-	public static Greenhouse getRoseFlowerGreenhouse(String greenhouse) { //проверка данных
-    	if(greenhouse.equals("Роза"))
+	//================РїСЂРѕРІРµСЂРєР° РёСЃРєР»СЋС‡РµРЅРёР№ РІР°СЂРёР°РЅС‚Р° Рђ================
+	public static Greenhouse getRoseFlowerGreenhouse(String greenhouse) { //РїСЂРѕРІРµСЂРєР° РґР°РЅРЅС‹С…
+    	if(greenhouse.equals("Р РѕР·Р°"))
 		return new RoseFlowerGreenhouse();
-    	else if(greenhouse.equals("Ромашка"))
-    		return new СhamomileGreenhouse();
-    	throw new RuntimeException("Не таких цветов в наличии: "+greenhouse);// исключение
+    	else if(greenhouse.equals("Р РѕРјР°С€РєР°"))
+    		return new РЎhamomileGreenhouse();
+    	throw new RuntimeException("РќРµ С‚Р°РєРёС… С†РІРµС‚РѕРІ РІ РЅР°Р»РёС‡РёРё: "+greenhouse);// РёСЃРєР»СЋС‡РµРЅРёРµ
     }
-	public static PackingСompany getPackingCompany(String packingCompany) { //проверка данных
-    	if(packingCompany.equals("Красная упаковка"))
+	public static PackingРЎompany getPackingCompany(String packingCompany) { //РїСЂРѕРІРµСЂРєР° РґР°РЅРЅС‹С…
+    	if(packingCompany.equals("РљСЂР°СЃРЅР°СЏ СѓРїР°РєРѕРІРєР°"))
 		return new RedPackingCompany();
-    	else if(packingCompany.equals("Синяя упаковка"))
+    	else if(packingCompany.equals("РЎРёРЅСЏСЏ СѓРїР°РєРѕРІРєР°"))
     		return new BluePackingCompany();
-    	throw new RuntimeException("Компаний по производству таких упаковак нет : "+packingCompany);
+    	throw new RuntimeException("РљРѕРјРїР°РЅРёР№ РїРѕ РїСЂРѕРёР·РІРѕРґСЃС‚РІСѓ С‚Р°РєРёС… СѓРїР°РєРѕРІР°Рє РЅРµС‚ : "+packingCompany);
     }
-	//================проверка исключений варианта Б================
-	public static SweetsPlant getSweetsPlant(String sweetsPlant) { //проверка данных
-    	if(sweetsPlant.equals("Конфета"))
+	//================РїСЂРѕРІРµСЂРєР° РёСЃРєР»СЋС‡РµРЅРёР№ РІР°СЂРёР°РЅС‚Р° Р‘================
+	public static SweetsPlant getSweetsPlant(String sweetsPlant) { //РїСЂРѕРІРµСЂРєР° РґР°РЅРЅС‹С…
+    	if(sweetsPlant.equals("РљРѕРЅС„РµС‚Р°"))
 		return new RoshenSweetsPlant();
-    	else if(sweetsPlant.equals("Шоколад")) 
+    	else if(sweetsPlant.equals("РЁРѕРєРѕР»Р°Рґ")) 
     		return new NestleSweetsPlant();
-    	throw new RuntimeException("Сладостей такого вида не производят: " + sweetsPlant);// исключение
+    	throw new RuntimeException("РЎР»Р°РґРѕСЃС‚РµР№ С‚Р°РєРѕРіРѕ РІРёРґР° РЅРµ РїСЂРѕРёР·РІРѕРґСЏС‚: " + sweetsPlant);// РёСЃРєР»СЋС‡РµРЅРёРµ
     }
-	public static PackingСompanySweets getPackageSweets(String packingСompanySweets) { //проверка данных
-    	if(packingСompanySweets.equals("Красная упаковка"))
-		return new RedPackingСompanySweets();
-    	else if(packingСompanySweets.equals("Синяя упаковка"))
-    		return new BluePackingСompanySweets();
-    	throw new RuntimeException("Компаний по производству таких упаковак нет : "+packingСompanySweets);
+	public static PackingРЎompanySweets getPackageSweets(String packingРЎompanySweets) { //РїСЂРѕРІРµСЂРєР° РґР°РЅРЅС‹С…
+    	if(packingРЎompanySweets.equals("РљСЂР°СЃРЅР°СЏ СѓРїР°РєРѕРІРєР°"))
+		return new RedPackingРЎompanySweets();
+    	else if(packingРЎompanySweets.equals("РЎРёРЅСЏСЏ СѓРїР°РєРѕРІРєР°"))
+    		return new BluePackingРЎompanySweets();
+    	throw new RuntimeException("РљРѕРјРїР°РЅРёР№ РїРѕ РїСЂРѕРёР·РІРѕРґСЃС‚РІСѓ С‚Р°РєРёС… СѓРїР°РєРѕРІР°Рє РЅРµС‚ : "+packingРЎompanySweets);
 }
 }
-//Основной класс цветочная композиция ===========================Вариант А=========================================
+//РћСЃРЅРѕРІРЅРѕР№ РєР»Р°СЃСЃ С†РІРµС‚РѕС‡РЅР°СЏ РєРѕРјРїРѕР·РёС†РёСЏ ===========================Р’Р°СЂРёР°РЅС‚ Рђ=========================================
 class FlowerComposition{
-	private String name; //композиция имеет название
-	private List<Package> packages; //компазиция упакована в одну или несколько упаковак
-	private List<Flower> flowers;//в состав цветочной компазиции входят цветы
+	private String name; //РєРѕРјРїРѕР·РёС†РёСЏ РёРјРµРµС‚ РЅР°Р·РІР°РЅРёРµ
+	private List<Package> packages; //РєРѕРјРїР°Р·РёС†РёСЏ СѓРїР°РєРѕРІР°РЅР° РІ РѕРґРЅСѓ РёР»Рё РЅРµСЃРєРѕР»СЊРєРѕ СѓРїР°РєРѕРІР°Рє
+	private List<Flower> flowers;//РІ СЃРѕСЃС‚Р°РІ С†РІРµС‚РѕС‡РЅРѕР№ РєРѕРјРїР°Р·РёС†РёРё РІС…РѕРґСЏС‚ С†РІРµС‚С‹
 	
 	FlowerComposition(String name, List<Package> packages, List<Flower> flowers){
 		this.name=name;
@@ -141,9 +141,9 @@ class FlowerComposition{
 		            						+ " ";
 		       
 				 return "" +
-	            "\r\n Название компазиции :'" + name + '\'' +
-	            ",\r\n Цветы композиции : '" + s  + '\'' +
-	            ",\r\n Композиция упакована в : '" + s2  + '\'' +
+	            "\r\n РќР°Р·РІР°РЅРёРµ РєРѕРјРїР°Р·РёС†РёРё :'" + name + '\'' +
+	            ",\r\n Р¦РІРµС‚С‹ РєРѕРјРїРѕР·РёС†РёРё : '" + s  + '\'' +
+	            ",\r\n РљРѕРјРїРѕР·РёС†РёСЏ СѓРїР°РєРѕРІР°РЅР° РІ : '" + s2  + '\'' +
 	            '}';
 		}
 	
@@ -172,14 +172,14 @@ class FlowerComposition{
 	}
 	
 }
-//Шаблоны Java. Фабричный метод (Factory Method) для цветов
-interface Flower{ //интерфейс  цветок
+//РЁР°Р±Р»РѕРЅС‹ Java. Р¤Р°Р±СЂРёС‡РЅС‹Р№ РјРµС‚РѕРґ (Factory Method) РґР»СЏ С†РІРµС‚РѕРІ
+interface Flower{ //РёРЅС‚РµСЂС„РµР№СЃ  С†РІРµС‚РѕРє
 	
 	void showFlower();
 	
 }
-class RoseFlower implements Flower{ // класс роза
-	private String name; //название цветка
+class RoseFlower implements Flower{ // РєР»Р°СЃСЃ СЂРѕР·Р°
+	private String name; //РЅР°Р·РІР°РЅРёРµ С†РІРµС‚РєР°
 	RoseFlower(String name){
 		this.name=name;
 	}
@@ -189,7 +189,7 @@ class RoseFlower implements Flower{ // класс роза
 		 return s;
 	 }
 	public void showFlower() {
-		System.out.println("Роза");
+		System.out.println("Р РѕР·Р°");
 	}
 	public String getName() {
 		return name;
@@ -198,9 +198,9 @@ class RoseFlower implements Flower{ // класс роза
 		this.name = name;
 	}
 }
-class Сhamomile implements Flower{ // класс ромашка
+class РЎhamomile implements Flower{ // РєР»Р°СЃСЃ СЂРѕРјР°С€РєР°
 	private String name;
-	Сhamomile(String name){
+	РЎhamomile(String name){
 		this.name=name;
 	}
 	 @Override
@@ -209,7 +209,7 @@ class Сhamomile implements Flower{ // класс ромашка
 		 return s;
 	 }
 	public void showFlower() {
-		System.out.println("Ромашка");
+		System.out.println("Р РѕРјР°С€РєР°");
 	}
 	public String getName() {
 		return name;
@@ -218,24 +218,24 @@ class Сhamomile implements Flower{ // класс ромашка
 		this.name = name;
 	}
 }
-interface Greenhouse{ // интерфейс цветная оранжерея для создания цветов
+interface Greenhouse{ // РёРЅС‚РµСЂС„РµР№СЃ С†РІРµС‚РЅР°СЏ РѕСЂР°РЅР¶РµСЂРµСЏ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ С†РІРµС‚РѕРІ
 	Flower createFlower(String name);
 }
-class RoseFlowerGreenhouse implements Greenhouse{ //оранжерея по выращиванию роз
+class RoseFlowerGreenhouse implements Greenhouse{ //РѕСЂР°РЅР¶РµСЂРµСЏ РїРѕ РІС‹СЂР°С‰РёРІР°РЅРёСЋ СЂРѕР·
 public Flower createFlower(String name) {
 	return new RoseFlower(name);
 }	
 }
-class СhamomileGreenhouse implements Greenhouse{  //оражерея по выращиванию Ромашек
+class РЎhamomileGreenhouse implements Greenhouse{  //РѕСЂР°Р¶РµСЂРµСЏ РїРѕ РІС‹СЂР°С‰РёРІР°РЅРёСЋ Р РѕРјР°С€РµРє
 public Flower createFlower(String name) {
-	return new Сhamomile(name);
+	return new РЎhamomile(name);
 }	
 }
-//Шаблоны Java. Фабричный метод (Factory Method) для упаковак
-interface Package{ //интерфейс  упаковка
+//РЁР°Р±Р»РѕРЅС‹ Java. Р¤Р°Р±СЂРёС‡РЅС‹Р№ РјРµС‚РѕРґ (Factory Method) РґР»СЏ СѓРїР°РєРѕРІР°Рє
+interface Package{ //РёРЅС‚РµСЂС„РµР№СЃ  СѓРїР°РєРѕРІРєР°
 	void showPackage();
 }
-class RedPackage implements Package{ // класс красная упаковка
+class RedPackage implements Package{ // РєР»Р°СЃСЃ РєСЂР°СЃРЅР°СЏ СѓРїР°РєРѕРІРєР°
 	private String name;
 	
 	RedPackage(String name){
@@ -248,7 +248,7 @@ class RedPackage implements Package{ // класс красная упаковка
 	 }
 	
 	public void showPackage() {
-		System.out.println("Красная упаковка");
+		System.out.println("РљСЂР°СЃРЅР°СЏ СѓРїР°РєРѕРІРєР°");
 	}
 
 	public String getName() {
@@ -259,7 +259,7 @@ class RedPackage implements Package{ // класс красная упаковка
 		this.name = name;
 	}
 }
-class BluePackage implements Package{ // класс синяя упаковка
+class BluePackage implements Package{ // РєР»Р°СЃСЃ СЃРёРЅСЏСЏ СѓРїР°РєРѕРІРєР°
 	private String name;
 	BluePackage(String name){
 		this.name=name;
@@ -270,7 +270,7 @@ class BluePackage implements Package{ // класс синяя упаковка
 		 return s;
 	 }
 	public void showPackage() {
-		System.out.println("Синяя упаковка");
+		System.out.println("РЎРёРЅСЏСЏ СѓРїР°РєРѕРІРєР°");
 	}
 
 	public String getName() {
@@ -281,26 +281,26 @@ class BluePackage implements Package{ // класс синяя упаковка
 		this.name = name;
 	}
 }
-interface PackingСompany{ // интерфейс компании по созданию упаковак
+interface PackingРЎompany{ // РёРЅС‚РµСЂС„РµР№СЃ РєРѕРјРїР°РЅРёРё РїРѕ СЃРѕР·РґР°РЅРёСЋ СѓРїР°РєРѕРІР°Рє
 	Package createPackage(String  name);
 }
-class RedPackingCompany implements PackingСompany{ //класс компания по созданию красных упаковак
+class RedPackingCompany implements PackingРЎompany{ //РєР»Р°СЃСЃ РєРѕРјРїР°РЅРёСЏ РїРѕ СЃРѕР·РґР°РЅРёСЋ РєСЂР°СЃРЅС‹С… СѓРїР°РєРѕРІР°Рє
 public Package createPackage(String name) {
 	return new RedPackage(name);
 }	
 }
-class BluePackingCompany implements PackingСompany{  //класс компания по созданию синих упаковак
+class BluePackingCompany implements PackingРЎompany{  //РєР»Р°СЃСЃ РєРѕРјРїР°РЅРёСЏ РїРѕ СЃРѕР·РґР°РЅРёСЋ СЃРёРЅРёС… СѓРїР°РєРѕРІР°Рє
 public Package createPackage(String name) {
 	return new BluePackage(name);
 }	
 }
 
 
-//Основной класс подарок ===========================Вариант Б=========================================
+//РћСЃРЅРѕРІРЅРѕР№ РєР»Р°СЃСЃ РїРѕРґР°СЂРѕРє ===========================Р’Р°СЂРёР°РЅС‚ Р‘=========================================
 class Present{
-	private String name; // Подарок имеет название
-	private List<PackageSweets> packageSweets; //подарок упакован в одну или несколько упаковак
-	private List<Sweetness> sweetness;//в состав подарка входят сладости
+	private String name; // РџРѕРґР°СЂРѕРє РёРјРµРµС‚ РЅР°Р·РІР°РЅРёРµ
+	private List<PackageSweets> packageSweets; //РїРѕРґР°СЂРѕРє СѓРїР°РєРѕРІР°РЅ РІ РѕРґРЅСѓ РёР»Рё РЅРµСЃРєРѕР»СЊРєРѕ СѓРїР°РєРѕРІР°Рє
+	private List<Sweetness> sweetness;//РІ СЃРѕСЃС‚Р°РІ РїРѕРґР°СЂРєР° РІС…РѕРґСЏС‚ СЃР»Р°РґРѕСЃС‚Рё
 	
 	Present(String name, List<PackageSweets> packageSweets, List<Sweetness> sweetness){
 		this.name=name;
@@ -320,9 +320,9 @@ class Present{
 		            						+ " ";
 		       
 				 return "" +
-	            "\r\n Название подарка :'" + name + '\'' +
-	            ",\r\n Конфеты в подарке : '" + s  + '\'' +
-	            ",\r\n Подарок упакован в : '" + s2  + '\'' +
+	            "\r\n РќР°Р·РІР°РЅРёРµ РїРѕРґР°СЂРєР° :'" + name + '\'' +
+	            ",\r\n РљРѕРЅС„РµС‚С‹ РІ РїРѕРґР°СЂРєРµ : '" + s  + '\'' +
+	            ",\r\n РџРѕРґР°СЂРѕРє СѓРїР°РєРѕРІР°РЅ РІ : '" + s2  + '\'' +
 	            '}';
 		}
 	
@@ -351,14 +351,14 @@ class Present{
 	}
 	
 }
-//Шаблоны Java. Фабричный метод (Factory Method) для сладостей
-interface Sweetness{ //интерфейс  сладость
+//РЁР°Р±Р»РѕРЅС‹ Java. Р¤Р°Р±СЂРёС‡РЅС‹Р№ РјРµС‚РѕРґ (Factory Method) РґР»СЏ СЃР»Р°РґРѕСЃС‚РµР№
+interface Sweetness{ //РёРЅС‚РµСЂС„РµР№СЃ  СЃР»Р°РґРѕСЃС‚СЊ
 	
 	void showSweetness();
 	
 }
-class Candy implements Sweetness{ // класс конфета
-	private String name; //название конфеты
+class Candy implements Sweetness{ // РєР»Р°СЃСЃ РєРѕРЅС„РµС‚Р°
+	private String name; //РЅР°Р·РІР°РЅРёРµ РєРѕРЅС„РµС‚С‹
 	Candy(String name){
 		this.name=name;
 	}
@@ -368,7 +368,7 @@ class Candy implements Sweetness{ // класс конфета
 		 return s;
 	 }
 	public void showSweetness() {
-		System.out.println("Конфета");
+		System.out.println("РљРѕРЅС„РµС‚Р°");
 	}
 	public String getName() {
 		return name;
@@ -379,9 +379,9 @@ class Candy implements Sweetness{ // класс конфета
 }
 
 
-class Сhocolate implements Sweetness{ // класс шоколад
+class РЎhocolate implements Sweetness{ // РєР»Р°СЃСЃ С€РѕРєРѕР»Р°Рґ
 	private String name;
-	Сhocolate(String name){
+	РЎhocolate(String name){
 		this.name=name;
 	}
 	 @Override
@@ -390,7 +390,7 @@ class Сhocolate implements Sweetness{ // класс шоколад
 		 return s;
 	 }
 	public void showSweetness() {
-		System.out.println("Шоколад");
+		System.out.println("РЁРѕРєРѕР»Р°Рґ");
 	}
 	public String getName() {
 		return name;
@@ -399,24 +399,24 @@ class Сhocolate implements Sweetness{ // класс шоколад
 		this.name = name;
 	}
 } 
-interface SweetsPlant{ // завод по производству сладостей
+interface SweetsPlant{ // Р·Р°РІРѕРґ РїРѕ РїСЂРѕРёР·РІРѕРґСЃС‚РІСѓ СЃР»Р°РґРѕСЃС‚РµР№
 	Sweetness createSweetness(String name);
 }
-class RoshenSweetsPlant implements SweetsPlant{ //Линия производства компании Roshen
+class RoshenSweetsPlant implements SweetsPlant{ //Р›РёРЅРёСЏ РїСЂРѕРёР·РІРѕРґСЃС‚РІР° РєРѕРјРїР°РЅРёРё Roshen
 public Sweetness createSweetness(String name) {
 	return new Candy(name);
 }	
 }
-class NestleSweetsPlant implements SweetsPlant{  //Линия производства компании Nestle
+class NestleSweetsPlant implements SweetsPlant{  //Р›РёРЅРёСЏ РїСЂРѕРёР·РІРѕРґСЃС‚РІР° РєРѕРјРїР°РЅРёРё Nestle
 public Sweetness createSweetness(String name) {
-	return new Сhocolate(name);
+	return new РЎhocolate(name);
 }	
 }
-//Шаблоны Java. Фабричный метод (Factory Method) для упаковак сладостей
-interface PackageSweets{ //интерфейс  упаковка для сладостей
+//РЁР°Р±Р»РѕРЅС‹ Java. Р¤Р°Р±СЂРёС‡РЅС‹Р№ РјРµС‚РѕРґ (Factory Method) РґР»СЏ СѓРїР°РєРѕРІР°Рє СЃР»Р°РґРѕСЃС‚РµР№
+interface PackageSweets{ //РёРЅС‚РµСЂС„РµР№СЃ  СѓРїР°РєРѕРІРєР° РґР»СЏ СЃР»Р°РґРѕСЃС‚РµР№
 	void showPackage();
 }
-class RedPackageSweets implements PackageSweets{ // класс красная упаковка для сладостей
+class RedPackageSweets implements PackageSweets{ // РєР»Р°СЃСЃ РєСЂР°СЃРЅР°СЏ СѓРїР°РєРѕРІРєР° РґР»СЏ СЃР»Р°РґРѕСЃС‚РµР№
 	private String name;
 	
 	RedPackageSweets(String name){
@@ -429,7 +429,7 @@ class RedPackageSweets implements PackageSweets{ // класс красная упаковка для с
 	 }
 	
 	public void showPackage() {
-		System.out.println("Красная упаковка");
+		System.out.println("РљСЂР°СЃРЅР°СЏ СѓРїР°РєРѕРІРєР°");
 	}
 
 	public String getName() {
@@ -440,7 +440,7 @@ class RedPackageSweets implements PackageSweets{ // класс красная упаковка для с
 		this.name = name;
 	}
 }
-class BluePackageSweets implements PackageSweets{ // класс синяя упаковка для сладостей
+class BluePackageSweets implements PackageSweets{ // РєР»Р°СЃСЃ СЃРёРЅСЏСЏ СѓРїР°РєРѕРІРєР° РґР»СЏ СЃР»Р°РґРѕСЃС‚РµР№
 	private String name;
 	BluePackageSweets(String name){
 		this.name=name;
@@ -451,7 +451,7 @@ class BluePackageSweets implements PackageSweets{ // класс синяя упаковка для сл
 		 return s;
 	 }
 	public void showPackage() {
-		System.out.println("Синяя упаковка");
+		System.out.println("РЎРёРЅСЏСЏ СѓРїР°РєРѕРІРєР°");
 	}
 
 	public String getName() {
@@ -462,15 +462,15 @@ class BluePackageSweets implements PackageSweets{ // класс синяя упаковка для сл
 		this.name = name;
 	}
 }
-interface PackingСompanySweets{ // интерфейс компании по созданию упаковак
+interface PackingРЎompanySweets{ // РёРЅС‚РµСЂС„РµР№СЃ РєРѕРјРїР°РЅРёРё РїРѕ СЃРѕР·РґР°РЅРёСЋ СѓРїР°РєРѕРІР°Рє
 	PackageSweets createPackageSweets(String  name);
 }
-class RedPackingСompanySweets implements PackingСompanySweets{ //класс компания по созданию красных упаковак для сладоствей
+class RedPackingРЎompanySweets implements PackingРЎompanySweets{ //РєР»Р°СЃСЃ РєРѕРјРїР°РЅРёСЏ РїРѕ СЃРѕР·РґР°РЅРёСЋ РєСЂР°СЃРЅС‹С… СѓРїР°РєРѕРІР°Рє РґР»СЏ СЃР»Р°РґРѕСЃС‚РІРµР№
 public PackageSweets createPackageSweets(String name) {
 	return new RedPackageSweets(name);
 }	
 }
-class BluePackingСompanySweets implements PackingСompanySweets{  //класс компания по созданию синих упаковак для сладостей
+class BluePackingРЎompanySweets implements PackingРЎompanySweets{  //РєР»Р°СЃСЃ РєРѕРјРїР°РЅРёСЏ РїРѕ СЃРѕР·РґР°РЅРёСЋ СЃРёРЅРёС… СѓРїР°РєРѕРІР°Рє РґР»СЏ СЃР»Р°РґРѕСЃС‚РµР№
 public PackageSweets createPackageSweets(String name) {
 	return new BluePackageSweets(name);
 }	
