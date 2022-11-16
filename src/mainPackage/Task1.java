@@ -1,9 +1,7 @@
 package mainPackage;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 // Создать объект класса Текстовый файл, 
 // используя классы Файл, Директория.
 // Методы: создать, переименовать, вывести на консоль содержимое, дополнить, удалить.
@@ -91,31 +89,30 @@ class File{
 }
 public class Task1 {
 	public static void main(String[] args) {
-		 List<Directory> folders = new ArrayList<>();
-	     List<File> files = new ArrayList<>();
+		List<Directory> folders = new ArrayList<>();
+		List<File> files = new ArrayList<>();
 		Scanner scan = new Scanner(System.in);
-        int x = 0;
-        String s ="";
-        String s1 ="";
-        String s2 ="";
-        Directory objDirectory = new Directory("Новая папка",null);
-        folders.add(objDirectory);
-        while (!"6".equals(s)){
-            System.out.println("1. Для создания текстового файла введите ==> 1");
-            System.out.println("2. Для переименовывания файла введите ==> 2");
-            System.out.println("3. Для того чтобы вывести на консоль введите ==> 3");
-            System.out.println("4. Для дополнения текстового файла введите ==> 4");
-            System.out.println("5. Для удаления текстового файла введите ==> 5");
-            System.out.println("5. Для выхода введите ==> 6");
-            s = scan.next();
-            try {
-                x = Integer.parseInt(s);
-            } catch (NumberFormatException e){
-                System.out.println("Неверный ввод");
-            }
-            switch (x){
+        	int x = 0;
+        	String s ="";
+        	String s1 ="";
+        	String s2 ="";
+        	Directory objDirectory = new Directory("Новая папка",null);
+        	folders.add(objDirectory);
+        	while (!"6".equals(s)){
+           		System.out.println("1. Для создания текстового файла введите ==> 1");
+            		System.out.println("2. Для переименовывания файла введите ==> 2");
+            		System.out.println("3. Для того чтобы вывести на консоль введите ==> 3");
+            		System.out.println("4. Для дополнения текстового файла введите ==> 4");
+            		System.out.println("5. Для удаления текстового файла введите ==> 5");
+            		System.out.println("5. Для выхода введите ==> 6");
+            		s = scan.next();
+            		try {
+				x = Integer.parseInt(s);
+            		} catch (NumberFormatException e){
+               			 System.out.println("Неверный ввод");
+            		}
+           	switch (x){
                 case 1:	
-                    // вызов метода 1
                 	System.out.println("===== Выбран пункт меню 1 =====");
                 	System.out.println("Введите название файла:");
                 	s1=scan.next();
@@ -127,7 +124,6 @@ public class Task1 {
                 	objDirectory.create(files);
                     break;
                 case 2:
-                    // вызов метода 2
                 	System.out.println("===== Выбран пункт меню 2 =====");
                 	System.out.println("Введите название файла для переимонавания:");
                 	s1=scan.next();
@@ -137,7 +133,6 @@ public class Task1 {
                 	objDirectory.rename(s1,s2);            	    
                     break;
                 case 3:
-                    // вызов метода 3
                 	System.out.println("===== Выбран пункт меню 3 =====");
             	 	System.out.println("===== Список папок");
             	    for (Directory u : folders) {
@@ -145,7 +140,6 @@ public class Task1 {
             	    }
                     break;
                 case 4:
-                    // вызов метода 4
                 	System.out.println("===== Выбран пункт меню 4 =====");
                 	System.out.println("Введите название файла для дополнения:");
                 	s1=scan.next();
@@ -166,5 +160,4 @@ public class Task1 {
         System.out.println("До свидания!");
         scan.close();
 	}
-
 }
